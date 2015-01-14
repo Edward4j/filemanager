@@ -4,4 +4,8 @@ class StaticPagesController < ApplicationController
     @greeting = "Hello! This is a filemanager"
   end
 
+  def petro
+    @name = 'Petro'
+  end
+
 end
