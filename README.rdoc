@@ -26,3 +26,33 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+deploy on heroku:
+
+    git pull(on master branch)
+
+    git checkout production
+
+    git pull(on production branch)
+
+    git merge master
+
+    rake assets:precompile --trace RAILS_ENV=production
+
+    git add -p
+
+    git commit -a -m "message"
+
+    git push
+
+    git push heroku production:master
+
+    heroku run rake db:migrate (if you have new migrations)
+
+    heroku restart (if you have new migrations)
+
+useful commands for Heroku:
+
+    heroku logs --tail
+
+    heroku run rails console
