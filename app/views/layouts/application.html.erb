@@ -8,7 +8,18 @@
 </head>
 <body>
 
-<%= yield %>
+  <header>
+    <%= render 'layouts/navigation' %>
+  </header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <%= render 'layouts/messages' %>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+
 
 </body>
 </html>

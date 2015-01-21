@@ -1,13 +1,23 @@
 Rails.application.routes.draw do
+  devise_for :users#, :controllers => { :omniauth_callbacks => "callbacks" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  get 'petro' => 'static_pages#petro'
+
+  resources :users
   root 'static_pages#landing'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
+
+ #   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+ #   match 'auth/failure', to: redirect('/'), via: [:get, :post]
+  #  match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
+
+#get 'auth/:provider', to: 'sessions#create'
+#get 'auth/failure', to: redirect('/')
+#get 'signout', to: 'sessions#destroy', as: 'signout'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
