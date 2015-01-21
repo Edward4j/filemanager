@@ -49,6 +49,7 @@ test:
 #
 production:
   <<: *default
-  database: filemanager4_production
+  adapter: postgresql
+  database: filemanager_production
   username: filemanager
   password: <%= ENV['FILEMANAGER_DATABASE_PASSWORD'] %>
