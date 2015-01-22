@@ -7,7 +7,7 @@ class StaticPagesController < ApplicationController
   end
 
   def tools
-    @language = 'Ruby'
+    @language = 'Ruby 2.2'
   end
 
 end
