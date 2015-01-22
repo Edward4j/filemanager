@@ -37,7 +37,7 @@ RSpec.describe StaticPagesController, :type => :controller do
 
     it "defines @greeting" do
       get :tools
-      expect(assigns(:language)).to eq "Ruby"
+      expect(assigns(:language)).to eq "Ruby 2.2"
     end
   end
 
