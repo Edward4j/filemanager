@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
 
   resources :users
+  get 'tools' => 'static_pages#tools'
   root 'static_pages#landing'
 
   # Example of regular route:
