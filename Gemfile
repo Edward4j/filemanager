@@ -3,8 +3,10 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
-# Use sqlite3 as the database for Active Record
+
+# Use mysql as the database for Active Record
 gem 'mysql2'
+gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -32,13 +34,13 @@ gem 'slim'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-  gem 'devise', '~> 3.4.1'
-  gem 'bootstrap-sass', '~> 3.3.1.0'
-  gem 'devise-bootstrap-views', '~> 0.0.3'
-  gem 'execjs'
-  gem 'therubyracer'
-  gem 'omniauth'
-  gem 'omniauth-facebook'
+gem 'devise', '~> 3.4.1'
+gem 'bootstrap-sass', '~> 3.3.1.0'
+gem 'devise-bootstrap-views', '~> 0.0.3'
+gem 'execjs'
+gem 'therubyracer'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -50,7 +52,4 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'rspec-rails'
-
-
 end
-
