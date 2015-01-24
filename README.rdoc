@@ -27,7 +27,24 @@ Things you may want to cover:
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
 
-deploy on heroku:
+==Deploy your application to Heroku
+
+Make sure you are in the directory that contains your Rails app, then create an app on Heroku:
+ 
+ heroku create
+
+You can verify that the remote was added to your project by running
+
+ git config --list | grep heroku
+
+Deploy your code:
+
+ git push heroku master
+
+It is always a good idea to check to see if there are any warnings or errors in the output.
+If everything went well you can migrate your database.
+
+=deploy on heroku:
 
     git pull(on master branch)
 
@@ -51,7 +68,7 @@ deploy on heroku:
 
     heroku restart (if you have new migrations)
 
-useful commands for Heroku:
+=useful commands for Heroku:
 
     heroku logs --tail
 
