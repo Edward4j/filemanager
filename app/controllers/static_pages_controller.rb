@@ -11,7 +11,11 @@ class StaticPagesController < ApplicationController
   end
 
   def contacts
- 	@name = 'Contacts'
+ 	  @name = 'Contacts'
+  end
+  
+  def about_us
+
   end
 
 end

@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :users
   get 'tools' => 'static_pages#tools' 
   get 'contacts' => 'static_pages#contacts'
+  get 'about_us' => 'static_pages#about_us'
+  
   root 'static_pages#landing'
 
   # Example of regular route:
