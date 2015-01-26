@@ -10,4 +10,8 @@ class StaticPagesController < ApplicationController
     @language = 'Ruby 2.2'
   end
 
+  def contacts
+ 	@name = 'Contacts'
+  end
+
 end
