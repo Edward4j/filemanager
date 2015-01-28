@@ -70,6 +70,11 @@ RSpec.describe StaticPagesController, :type => :controller do
       get :about_us
       expect(response).to render_template("about_us")
     end
+
+    it "defines @developers" do
+      get :about_us
+      expect(assigns(:developers)).to eq "Our Team:"
+    end
   end
   
 end

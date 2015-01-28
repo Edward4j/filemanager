@@ -15,7 +15,7 @@ class StaticPagesController < ApplicationController
   end
   
   def about_us
-
+    @developers = "Our Team:"
   end
 
 end
