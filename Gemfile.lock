@@ -224,7 +224,6 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mysql2
-  omniauth
   omniauth-facebook
   pg
   rails (= 4.2.0)
