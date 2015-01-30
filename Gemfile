@@ -35,12 +35,12 @@ gem 'slim'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-  gem 'devise', '~> 3.4.1'
-  gem 'bootstrap-sass', '~> 3.3.1.0'
-  gem 'devise-bootstrap-views', '~> 0.0.3'
-  gem 'execjs'
-  gem 'therubyracer'
-  gem 'omniauth-facebook'
+gem 'devise', '~> 3.4.1'
+gem 'bootstrap-sass', '~> 3.3.1.0'
+gem 'devise-bootstrap-views', '~> 0.0.3'
+gem 'execjs'
+gem 'therubyracer'
+gem 'omniauth-facebook'
 
 
 group :development, :test do
