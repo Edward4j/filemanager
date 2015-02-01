@@ -22,4 +22,8 @@ class StaticPagesController < ApplicationController
     @answers = "This is F.A.Q."
   end
 
+  def folders
+ 	@name = 'Contacts'
+  end
+
 end
