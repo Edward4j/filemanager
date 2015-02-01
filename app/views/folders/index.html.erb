@@ -1,0 +1,15 @@
+<% for folder in @folders %>
+  <div class="folder">
+    <div class="created_at"><%= folder.created_at.strftime("%B %d, %Y") %></div>   
+    <div class="content">
+      <%= folder.name %>
+    </div>
+    <div class="actions">
+      <%= link_to "Reply", new_folder_path(:parent_id => folder) %> |
+      <%= link_to "Destroy", folder, :confirm => "Are you sure?", :method => :delete %>
+    </div>
+  </div>
+<% end %>
+
+<%= render "form" %>
+
