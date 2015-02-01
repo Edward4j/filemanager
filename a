@@ -1,0 +1,146 @@
+[33mcommit 5ce709a66c3fbade65bd3b9fa4bc490f597cfbfa[m
+Author: adutka <adutka@ukr.net>
+Date:   Tue Jan 27 02:10:42 2015 +0200
+
+    contact_page_modified
+
+[33mcommit 279ca195bc913caa7492ed7a272200bb60886dd4[m
+Author: adutka <adutka@ukr.net>
+Date:   Tue Jan 27 00:47:34 2015 +0200
+
+    contact page create
+
+[33mcommit 35ef68bdace9c21a4cd4ab3fea8d8c289962def6[m
+Author: adutka <adutka@ukr.net>
+Date:   Tue Jan 27 00:46:41 2015 +0200
+
+    contact page create
+
+[33mcommit 24e99d2513496a13ad5b4f3ebf081553fb30680e[m
+Author: Edward4j <Eduard.dovgal@gmail.com>
+Date:   Sat Jan 24 19:05:50 2015 +0200
+
+    Added name of the application on Heroku
+
+[33mcommit 0958734a830a78f5ab377dbca3b143557727baaf[m
+Author: Edward4j <Eduard.dovgal@gmail.com>
+Date:   Sat Jan 24 18:54:02 2015 +0200
+
+    Adding instructions to deploy on heroku
+
+[33mcommit 622a009ab2e6495964b0e85b7b3b8793af29fa50[m
+Merge: 52c027e 011f209
+Author: Pyotr Koryakin <pkor@softserveinc.com>
+Date:   Thu Jan 22 05:06:52 2015 +0200
+
+    Merge pull request #3 from Edward4j/tools_static_page
+    
+    Tools static page
+
+[33mcommit 011f209e1b8394181ddd9aeb4731b4394cf54c72[m
+Author: Petro Koriakin <pkor@softserveinc.com>
+Date:   Thu Jan 22 05:03:25 2015 +0200
+
+    fix specs
+
+[33mcommit c442ce9619831031aae56db63ea44cc26ab36f75[m
+Author: Petro Koriakin <pkor@softserveinc.com>
+Date:   Thu Jan 22 04:12:22 2015 +0200
+
+    tools updated
+
+[33mcommit d2ff41221dd271ff1300a7643cb6a758f508f0cd[m
+Author: Petro Koriakin <pkor@softserveinc.com>
+Date:   Thu Jan 22 04:07:54 2015 +0200
+
+    used technonologies page
+
+[33mcommit 52c027eef62de9e52d1b6e7bf8595fbf98e866b2[m
+Merge: 6941113 996a505
+Author: Pyotr Koryakin <pkor@softserveinc.com>
+Date:   Thu Jan 22 04:51:22 2015 +0200
+
+    Merge pull request #2 from Edward4j/master_ed
+    
+    Master ed
+
+[33mcommit 996a5051d1b3c6783192aa477ff643e3ee3aa47d[m
+Author: Petro Koriakin <pkor@softserveinc.com>
+Date:   Thu Jan 22 04:21:22 2015 +0200
+
+    get rid of Idea XMLs
+
+[33mcommit 67f6ab2eecdbb2eac491f3b693078da4f41c9baa[m
+Author: Edward4j <eduard.dovgal@gmail.com>
+Date:   Wed Jan 21 18:24:32 2015 +0200
+
+    adding idea files
+
+[33mcommit e51f7f4e21c5b8cad194bb16838c629eec89d972[m
+Author: Edward4j <eduard.dovgal@gmail.com>
+Date:   Wed Jan 21 18:21:40 2015 +0200
+
+    Correcting config/database.yml for mysql in development and postgresql for production mode
+
+[33mcommit 2e199f72718cdabe4580c46c7561ec40d23eeb6c[m
+Author: Edward4j <eduard.dovgal@gmail.com>
+Date:   Sun Jan 18 12:55:11 2015 +0200
+
+    Adding Gemfile
+
+[33mcommit 6941113824cf28339af30cb165a877335b629d30[m
+Merge: 6cfb372 f0c633f
+Author: Pyotr Koryakin <pkor@softserveinc.com>
+Date:   Wed Jan 21 23:38:27 2015 +0200
+
+    Merge pull request #1 from Edward4j/Robert_branch
+    
+    add devise
+
+[33mcommit f0c633f1a79f8a132476de8fb6ee21b77c6b1014[m
+Author: Robert Pavlovskyi <robert.pavlovsky@gmail.com>
+Date:   Wed Jan 21 23:31:17 2015 +0200
+
+    fixes for devise
+
+[33mcommit 9bdfc5af0b9e7f4fb3d6288839c6ae2f2d8c69c2[m
+Author: Robert Pavlovskyi <robert.pavlovsky@gmail.com>
+Date:   Sun Jan 18 01:43:49 2015 +0200
+
+    add devise
+
+[33mcommit 6cfb372e32db30fc9245034d999e30344612a69c[m
+Author: Edward4j <Eduard.dovgal@gmail.com>
+Date:   Tue Jan 20 18:02:54 2015 +0200
+
+    Update README.rdoc
+
+[33mcommit 9e1be815378bda222f5c933ca575178a0f672a02[m
+Author: Petro Koriakin <pkor@softserveinc.com>
+Date:   Sat Jan 17 01:17:20 2015 +0200
+
+    add link to sample page
+
+[33mcommit 93ec6748c5385b90b74ccb0f9fd900dc26cfb16a[m
+Author: Petro Koriakin <pkor@softserveinc.com>
+Date:   Wed Jan 14 16:58:46 2015 +0200
+
+    petro's page done with TDD
+
+[33mcommit d24662bd19a313fce95d002dd8ed112bc85fe5eb[m
+Author: Petro Koriakin <pkor@softserveinc.com>
+Date:   Wed Jan 14 16:11:33 2015 +0200
+
+    a staic page for root uri
+
+[33mcommit fc9080b42366b8fc3ced38737bfbeaefee13da08[m
+Author: Petro Koriakin <pkor@softserveinc.com>
+Date:   Wed Jan 14 15:42:16 2015 +0200
+
+    fix missing  Gemfile
+
+[33mcommit d1689dd89a6c6ceeac8a003681841e25e3f6a817[m
+Author: Edward4j <eduard.dovgal@gmail.com>
+Date:   Thu Jan 8 11:03:01 2015 +0200
+
+    Initial commit: Creatin emty Project with database MySQL2
