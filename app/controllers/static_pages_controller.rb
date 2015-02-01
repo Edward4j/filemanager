@@ -14,4 +14,8 @@ class StaticPagesController < ApplicationController
  	@name = 'Contacts'
   end
 
+  def folders
+ 	@name = 'Contacts'
+  end
+
 end

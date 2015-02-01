@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+
   devise_for :users#, :controllers => { :omniauth_callbacks => "callbacks" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -9,6 +11,8 @@ Rails.application.routes.draw do
   get 'tools' => 'static_pages#tools' 
   get 'contacts' => 'static_pages#contacts'
   root 'static_pages#landing'
+
+  resources :folders
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
