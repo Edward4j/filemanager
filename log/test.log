@@ -1,0 +1,980 @@
+  [1m[36m (98.2ms)[0m  [1mDROP DATABASE IF EXISTS `filemanager4_test`[0m
+  [1m[35m (0.3ms)[0m  CREATE DATABASE `filemanager4_test` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`
+  [1m[36m (66.8ms)[0m  [1mCREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0 NOT NULL, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `created_at` datetime, `updated_at` datetime, `name` varchar(255), `provider` varchar(255), `uid` varchar(255)) ENGINE=InnoDB[0m
+  [1m[35m (165.9ms)[0m  CREATE UNIQUE INDEX `index_users_on_email` USING btree ON `users` (`email`) 
+  [1m[36m (149.1ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_reset_password_token` USING btree ON `users` (`reset_password_token`) [0m
+  [1m[35m (63.9ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36m (174.9ms)[0m  [1mCREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) [0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM `schema_migrations`
+  [1m[36m (31.8ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20150123141628')[0m
+  [1m[35m (33.2ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20150116182347')
+  [1m[36m (33.2ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20150119114834')[0m
+  [1m[35m (33.1ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20150116101956')
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$OW4f3EeqplHVuDkgwi1U5uJI.bS00nI4Ts2KrYIu3oIra1BtJc85O', 'Test User', '2015-02-01 21:39:33.865616', '2015-02-01 21:39:33.865616')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#landing as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/landing.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 157ms (Views: 85.1ms | ActiveRecord: 0.5ms)
+  [1m[35m (41.3ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$ywuZZe3c05fP00x2iWIVhu4wAWiv.x.gWz3IMmYNB0qZp/PgJ35Sq', 'Test User', '2015-02-01 21:39:34.086165', '2015-02-01 21:39:34.086165')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#landing as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/landing.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.4ms)
+  [1m[36m (30.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$kOisca1tQQITNzUYVFPO4uBkJxwQNxLJl/A62r8grQi8w4rJYEqv.', 'Test User', '2015-02-01 21:39:34.127401', '2015-02-01 21:39:34.127401')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#landing as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/landing.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.2ms)
+  [1m[35m (58.5ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$envCOQoj5eiUZBWTUS9nwu968A6kE0528nN00V4wtIzxBn0o3Bpd2', 'Test User', '2015-02-01 21:39:34.211345', '2015-02-01 21:39:34.211345')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#tools as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 4  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/tools.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+  [1m[36m (37.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$x9nW9Ohmi3l0o2Zc9Ru7ae1DEMvCkEf8I4FD4abFVpiwbLMaQo.Ee', 'Test User', '2015-02-01 21:39:34.261015', '2015-02-01 21:39:34.261015')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#tools as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/tools.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.4ms)
+  [1m[35m (39.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$f06t.MCvUqs95UcYi3HJJ.ADTVOcGPNJCrUktegwpTCXD7gRlwmHe', 'Test User', '2015-02-01 21:39:34.311290', '2015-02-01 21:39:34.311290')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#tools as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 6  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/tools.html.slim within layouts/application (0.4ms)
+Completed 200 OK in 4ms (Views: 1.8ms | ActiveRecord: 0.4ms)
+  [1m[36m (36.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$FITWqbUvUoXOf3zqHABdqOfsUzCURdW4OOMOiff0e0OT9E4F.q/1a', 'Test User', '2015-02-01 21:39:34.361497', '2015-02-01 21:39:34.361497')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#contacts as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/contacts.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.4ms)
+  [1m[35m (37.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$eoWEjCdqyMaMSYjjAxcpNudrMKlueiE8I3U0fWErrv3U.n/Awj7ze', 'Test User', '2015-02-01 21:39:34.411270', '2015-02-01 21:39:34.411270')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#contacts as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 8  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/contacts.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+  [1m[36m (39.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$yYNFJ01fNcWpYCpkXzsFdeoa8Gt5tLXFG6XZ0AwDycOYttn8f5t6e', 'Test User', '2015-02-01 21:39:34.461424', '2015-02-01 21:39:34.461424')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#contacts as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 9  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/contacts.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.2ms)
+  [1m[35m (39.8ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$XrpfkQ/Z4ZomKls1ArVMk.vl2jXa0vTrSHR7iTgFcnzi/.Jktac2u', 'Test User', '2015-02-01 21:39:34.511518', '2015-02-01 21:39:34.511518')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#about_us as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 10  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/about_us.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.4ms)
+  [1m[36m (38.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$CYYkQ4Tnq2.dnp1uzy8AXe1B.KK9f03bMBybd0oSALIeWISmL8MDW', 'Test User', '2015-02-01 21:39:34.566271', '2015-02-01 21:39:34.566271')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#about_us as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 11  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/about_us.html.slim within layouts/application (0.4ms)
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.4ms)
+  [1m[35m (40.8ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$tKS6dnGWz8FUUNpzKVhXWOE.0Bivxqq.648fhzfbLgqLN4n9/nDSq', 'Test User', '2015-02-01 21:39:34.622145', '2015-02-01 21:39:34.622145')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#about_us as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 12  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/about_us.html.slim within layouts/application (0.4ms)
+Completed 200 OK in 4ms (Views: 1.8ms | ActiveRecord: 0.4ms)
+  [1m[36m (51.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$E/5yjGhM9/7MEnCFeDQU7OUU6smIaVnrqCG0XyF1nhvFvnCBxDPK2', 'Test User', '2015-02-01 21:39:34.691059', '2015-02-01 21:39:34.691059')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (37.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$ud72ah6VNNp88KDiGtxhx.KIUGoddOMiz9faKVDZ2oAx8QO6V7IXi', 'Test User', '2015-02-01 22:33:14.540483', '2015-02-01 22:33:14.540483')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#landing as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 14  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/landing.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 52ms (Views: 9.6ms | ActiveRecord: 0.4ms)
+  [1m[35m (45.6ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$A6Fic6VtAfOtPq/ko0KCue6pqbapzKH0YEP3B80KGqC2P1x79/HS2', 'Test User', '2015-02-01 22:33:14.654099', '2015-02-01 22:33:14.654099')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#landing as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 15  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/landing.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.5ms)
+  [1m[36m (40.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$jNCkCGshb.XzFY0QSe6MQuPiCJyrjR2hIIoWf2JmbWGhdRx5tb.xi', 'Test User', '2015-02-01 22:33:14.712271', '2015-02-01 22:33:14.712271')[0m
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#landing as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 16  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/landing.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.5ms)
+  [1m[35m (42.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$5eTGA.lQzud6XTEJJtVgYebXcypxijFWJ3e8/K/A414VTYXIzaWzS', 'Test User', '2015-02-01 22:33:14.770590', '2015-02-01 22:33:14.770590')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#tools as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 17  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/tools.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.4ms)
+  [1m[36m (49.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$h14AMwR6c2tlg77/yE0/2.ELOaDVnbnZqu2Ksh1MjGCpQg4Qyt/.u', 'Test User', '2015-02-01 22:33:14.838139', '2015-02-01 22:33:14.838139')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#tools as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 18  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/tools.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.4ms)
+  [1m[35m (40.5ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$6MAntsY5rTSCtWGzpCF5Mu29XMG26Lyq1tTw./40Dll.MLSN2K9aS', 'Test User', '2015-02-01 22:33:14.893945', '2015-02-01 22:33:14.893945')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#tools as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 19  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/tools.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.5ms)
+  [1m[36m (36.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$/eAO0PimRpJtBqtrH8WAfOeafDzrxZaQYGyyv7vXtd5EFy90wgjn2', 'Test User', '2015-02-01 22:33:14.947174', '2015-02-01 22:33:14.947174')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#contacts as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 20  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/contacts.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.5ms)
+  [1m[35m (39.2ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$RfLlngsRDSWAefsBHBXxmOcxH91JOWUOtEys6DHpCA7I5s9u4GgzK', 'Test User', '2015-02-01 22:33:15.004437', '2015-02-01 22:33:15.004437')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#contacts as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 21  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/contacts.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+  [1m[36m (49.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$X7Hp99NeYZ7TD5RWhi2lkunAZjDa.t/XYFD/f4f/1YgxpJbaOL4D.', 'Test User', '2015-02-01 22:33:15.071201', '2015-02-01 22:33:15.071201')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#contacts as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 22  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/contacts.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+  [1m[35m (35.7ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$TJEZdpAQf1m8soOGC5OfJe10qtdIsqaTK/BquwOVeIGF7GzAFImia', 'Test User', '2015-02-01 22:33:15.120017', '2015-02-01 22:33:15.120017')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#about_us as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 23  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/about_us.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.3ms)
+  [1m[36m (27.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$fnqwi6.uX0txfo/PdY4zh.zOO1kektPojWb1xM7ZvZHGR4B9wJbrC', 'Test User', '2015-02-01 22:33:15.163427', '2015-02-01 22:33:15.163427')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#about_us as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 24  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/about_us.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.5ms)
+  [1m[35m (33.5ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$oCHJKss4WJUBUtZvSEcDIesJ7c3xkgZ5MnNX4GJYz5zl9GYxdT8pe', 'Test User', '2015-02-01 22:33:15.211098', '2015-02-01 22:33:15.211098')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#about_us as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 25  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/about_us.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.4ms)
+  [1m[36m (35.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$fAp2c.zsDSwqD16tjPaZcOqz7lzLR35fSx8JlFkt7HC2vIVwI1GWu', 'Test User', '2015-02-01 22:33:15.263100', '2015-02-01 22:33:15.263100')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (46.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$qwtJnHGNYKmPOBpVJWljielD3DX6iP5f.3m4LZt64ateYRU2pvB5y', 'Test User', '2015-02-01 22:37:44.929168', '2015-02-01 22:37:44.929168')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#landing as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 27  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/landing.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 19ms (Views: 9.9ms | ActiveRecord: 0.5ms)
+  [1m[35m (55.4ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$2lSCIkblI/FuO/eC7P8ZRuGuU85XVqDxvBHeWMwIkVvaVkoYk7ftS', 'Test User', '2015-02-01 22:37:45.020977', '2015-02-01 22:37:45.020977')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#landing as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 28  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/landing.html.slim within layouts/application (0.4ms)
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.4ms)
+  [1m[36m (38.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$8MuHrqr0Mqx72m2ryZH0KeJxX.x.G3YJGofkwq3n6penDXFeCH3fK', 'Test User', '2015-02-01 22:37:45.078655', '2015-02-01 22:37:45.078655')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#landing as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 29  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/landing.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.4ms)
+  [1m[35m (40.5ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$hKqX1eihGccXxkx23u/XIOQb4K7Al6MyQXaPmpC0N07fLqHvKp6re', 'Test User', '2015-02-01 22:37:45.133794', '2015-02-01 22:37:45.133794')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#tools as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 30  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/tools.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.4ms)
+  [1m[36m (44.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$ne1Za.FEOllFQEf8P/QUI.obMbCj5Pd6yphXGMMaTTFhEJFO/IhtW', 'Test User', '2015-02-01 22:37:45.191573', '2015-02-01 22:37:45.191573')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#tools as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 31  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/tools.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.4ms)
+  [1m[35m (47.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$NC0OBsDq05bK0flwKEcqfOHPkjzsqAs3HrGagTcdEDrnABTI6qbBy', 'Test User', '2015-02-01 22:37:45.249639', '2015-02-01 22:37:45.249639')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#tools as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 32  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/tools.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+  [1m[36m (31.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$kmxrlxhntSvY7E7jk/rbfO8UubsFbFBcqzZ5wQL0.HyO5B7xh3dPu', 'Test User', '2015-02-01 22:37:45.291620', '2015-02-01 22:37:45.291620')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#contacts as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 33  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/contacts.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.2ms)
+  [1m[35m (30.5ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$CHm26Ji19OBhGqoVBt/0ZO9.EVD8Vqk6U0bj9fcDqHvkWgQxU4.tW', 'Test User', '2015-02-01 22:37:45.333483', '2015-02-01 22:37:45.333483')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#contacts as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 34  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/contacts.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.4ms)
+  [1m[36m (30.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$PI5AvGsAJbOZwHib0b4CBOyxeJZ8qUiNqyxZyssdPKe5saGrfbkGa', 'Test User', '2015-02-01 22:37:45.374951', '2015-02-01 22:37:45.374951')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#contacts as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 35  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/contacts.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.4ms)
+  [1m[35m (31.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$d/e/8TybeA/q23XgKJJ1Tev0eivMDHQmO4KR4nl02xVT0sXgCR0bu', 'Test User', '2015-02-01 22:37:45.416834', '2015-02-01 22:37:45.416834')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#about_us as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 36  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/about_us.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.3ms)
+  [1m[36m (30.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$ef6BHip6eKs9FCuIJITaMOBydKCT/FS6jK5JFBEINnllyQQh8MnS6', 'Test User', '2015-02-01 22:37:45.458827', '2015-02-01 22:37:45.458827')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#about_us as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 37  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/about_us.html.slim within layouts/application (0.2ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.4ms)
+  [1m[35m (30.7ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$Bvr09jQUBIQjG2/YMkzn6ugToOXFBIecaRImU4Rvvli6YSH0TaEL2', 'Test User', '2015-02-01 22:37:45.500255', '2015-02-01 22:37:45.500255')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#about_us as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 38  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/about_us.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.4ms)
+  [1m[36m (31.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$z1jmYd/HbvnCauIfRlZsJe9fAIgpjotQmxq3RG6iuAXdIxec1Nl8W', 'Test User', '2015-02-01 22:37:45.542412', '2015-02-01 22:37:45.542412')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#FAQ as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 39  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 500 Internal Server Error in 16ms
+  [1m[35m (33.9ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$jeDheclnh7HmaLTAfhSCo.fAEJ9t74DZMTdW744GeXzWoKs0b9A6u', 'Test User', '2015-02-01 22:55:41.580991', '2015-02-01 22:55:41.580991')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#landing as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 40  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/landing.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 54ms (Views: 9.9ms | ActiveRecord: 0.6ms)
+  [1m[35m (37.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$AZtNv/5dCtgONPE42Tvku.r8S6e/DtAHfnD3AXasbDdqZK1l0xZL.', 'Test User', '2015-02-01 22:55:41.689508', '2015-02-01 22:55:41.689508')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#landing as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 41  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/landing.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.4ms)
+  [1m[36m (38.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$n47vfxK7k7Puek5ATnQVcOxWtQPbQWThTEPw/2h6UzOTb1HtsY4Q.', 'Test User', '2015-02-01 22:55:41.739739', '2015-02-01 22:55:41.739739')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#landing as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 42  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/landing.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.5ms)
+  [1m[35m (37.0ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$gtj2YVYfq9fHps1yYIISleq/X0qC7yDBv1N9Jc5iLS9FwgMJeuppO', 'Test User', '2015-02-01 22:55:41.789800', '2015-02-01 22:55:41.789800')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#tools as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 43  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/tools.html.slim within layouts/application (0.4ms)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms)
+  [1m[36m (29.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$8bEaVmpApVseTYLwLLrOZeOjrlIKgV12wKK35br3ZvUCQhHHkOSfi', 'Test User', '2015-02-01 22:55:41.832017', '2015-02-01 22:55:41.832017')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#tools as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 44  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/tools.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+  [1m[35m (47.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$ChYqelQkRI35auWfZscfB.EE9ByNpdKYXGh55EsWRzwrBN15VIyye', 'Test User', '2015-02-01 22:55:41.889787', '2015-02-01 22:55:41.889787')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#tools as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 45  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/tools.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+  [1m[36m (64.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$3cybYSFFwsCAWry.uc8SGu3CEOfAe5KFOLuj0oYN3V3jQXw5iJBgy', 'Test User', '2015-02-01 22:55:41.965189', '2015-02-01 22:55:41.965189')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#contacts as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 46  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/contacts.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.2ms)
+  [1m[35m (39.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$4swIK1GfUau2PPiQoYWF..wvcGVYRi95gRw0xs24jMe4B1suZI9Eq', 'Test User', '2015-02-01 22:55:42.015306', '2015-02-01 22:55:42.015306')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#contacts as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 47  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/contacts.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+  [1m[36m (39.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$sdotcuQzRIExaKlcKXbwMOINXTbjP5Tw6U.i2rLYEzroprOh1nRga', 'Test User', '2015-02-01 22:55:42.065410', '2015-02-01 22:55:42.065410')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#contacts as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 48  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/contacts.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+  [1m[35m (48.4ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$xA1DgKxytovHbSZ.J/B4oea/3yPSECZadVsvM/pNDDoA1SYim/vXG', 'Test User', '2015-02-01 22:55:42.129043', '2015-02-01 22:55:42.129043')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#about_us as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 49  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/about_us.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.3ms)
+  [1m[36m (32.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$Kkb4E9RZS7VQUU9gLmU2WOUCBV8ytspYzjnHE3z4XR4OLQlCSDQiC', 'Test User', '2015-02-01 22:55:42.178240', '2015-02-01 22:55:42.178240')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#about_us as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 50  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/about_us.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.4ms)
+  [1m[35m (34.4ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$dASu7e1aAqOwridjVpOF0OmYliVVoXh3lLNLYSAFKWO6zQJApqr0e', 'Test User', '2015-02-01 22:55:42.228318', '2015-02-01 22:55:42.228318')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#about_us as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 51  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/about_us.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.5ms)
+  [1m[36m (43.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$cNfD7AM5y6ZE.5K0VZ/8F.sLcQ85F7Zsg6NiLOmxImAfqTT61U96i', 'Test User', '2015-02-01 22:55:42.287223', '2015-02-01 22:55:42.287223')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#FAQ as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 52  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/FAQ.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.4ms)
+  [1m[35m (50.5ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$1noTdNPchJllHjvfIXRSoewjYd4qTL6HWWgO1qEhb0Y92H1ST6Icy', 'Test User', '2015-02-01 23:16:25.839779', '2015-02-01 23:16:25.839779')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#landing as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 53  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/landing.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 54ms (Views: 9.7ms | ActiveRecord: 0.5ms)
+  [1m[35m (45.9ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$PKsQRBg80qPp/60JN7IN0eYI98nCVPjKMc0iRFXJ2RO62GOmpKQ3S', 'Test User', '2015-02-01 23:16:25.952344', '2015-02-01 23:16:25.952344')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#landing as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 54  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/landing.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.2ms)
+  [1m[36m (39.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$LfKnQIoSztOTLgq5lMINWO3.hdjKy.o6aazuyu10ytpTl2pmpjdKS', 'Test User', '2015-02-01 23:16:26.002101', '2015-02-01 23:16:26.002101')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#landing as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 55  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/landing.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+  [1m[35m (38.5ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$rPUOCkl09/uUT971dINhqebk3w4UBZZW7b.zfH4jEEYXV.3r4ukVS', 'Test User', '2015-02-01 23:16:26.052550', '2015-02-01 23:16:26.052550')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#tools as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 56  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/tools.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.2ms)
+  [1m[36m (38.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (111.3ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$7YvuBbyIKLn6DelBs1wfieNk837.3tQUsBWxTnGBBs5WNjIHW.76q', 'Test User', '2015-02-01 23:16:26.102446', '2015-02-01 23:16:26.102446')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#tools as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 57  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/tools.html.slim within layouts/application (0.4ms)
+Completed 200 OK in 4ms (Views: 1.5ms | ActiveRecord: 0.5ms)
+  [1m[35m (50.8ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$wECYvLZB0qjr959LPGk0y.Wav3Vy48CoMjZNn6azyoLeyWdFQaqMS', 'Test User', '2015-02-01 23:16:26.278053', '2015-02-01 23:16:26.278053')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#tools as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 58  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/tools.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.4ms)
+  [1m[36m (39.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$iN6W5gAo49zy2n/3KwTpye6K2PI7q.wcJzNDgoypUYbznHNTqiuYC', 'Test User', '2015-02-01 23:16:26.328211', '2015-02-01 23:16:26.328211')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#contacts as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 59  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/contacts.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+  [1m[35m (38.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$2PQt7qobEGJsyyOLU1oDHOAU7f44ie7Qxc/Y0.luOS0yBcWiCEAhS', 'Test User', '2015-02-01 23:16:26.382735', '2015-02-01 23:16:26.382735')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#contacts as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 60  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/contacts.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.5ms)
+  [1m[36m (49.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$N35cSwNj.rbCZeb73vkLLerHep3D/re1Djf5hlwVuogNpXfaEuS16', 'Test User', '2015-02-01 23:16:26.446170', '2015-02-01 23:16:26.446170')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#contacts as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 61  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/contacts.html.slim within layouts/application (0.4ms)
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.3ms)
+  [1m[35m (44.9ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$zEYV4VHY/oOMAKar34g1ter5m5i2o3ohcuLAmVVILc0BGyt2zTDQ6', 'Test User', '2015-02-01 23:16:26.503961', '2015-02-01 23:16:26.503961')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#about_us as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 62  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/about_us.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+  [1m[36m (37.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$E1eIn22wqYirpP2ogrVFge2doZW82z2lbkWCi6oHQDAGlyMcTTrBq', 'Test User', '2015-02-01 23:16:26.557277', '2015-02-01 23:16:26.557277')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#about_us as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 63  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/about_us.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.4ms)
+  [1m[35m (43.4ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$5kGafMymvWTZJQjZ/sNAkOVAIjz7FNUwRGko.yvuAndUMbnrZvQfS', 'Test User', '2015-02-01 23:16:26.615998', '2015-02-01 23:16:26.615998')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#about_us as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 64  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/about_us.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+  [1m[36m (43.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$O1OrdD1/u/WKftD37ydCAOrbKkmtmP2GS6lnNMGdefZKlQBZ5GHuK', 'Test User', '2015-02-01 23:16:26.674375', '2015-02-01 23:16:26.674375')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#FAQ as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 65  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/FAQ.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+  [1m[35m (42.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$zwWGbi/cfqEDDsb5cbR9X.dGNoVQ0n269ZTQa.8y4wP..YMMWsy72', 'Test User', '2015-02-01 23:16:26.728843', '2015-02-01 23:16:26.728843')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#FAQ as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 66  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/FAQ.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+  [1m[36m (48.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$xIKSRgkzXadVaumGYGKb2uEM8mPf3KYChfr6nJmq2DhTBBzo1XpWm', 'Test User', '2015-02-01 23:16:26.791672', '2015-02-01 23:16:26.791672')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#FAQ as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 67  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/FAQ.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.4ms)
+  [1m[35m (41.9ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$7h3Nws9w6VEARBHnbMsPkuDIOHWM5cA//Kj.qA5W1OYSaauMyP0TC', 'Test User', '2015-02-01 23:45:38.760587', '2015-02-01 23:45:38.760587')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#landing as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 68  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/landing.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 59ms (Views: 12.8ms | ActiveRecord: 0.6ms)
+  [1m[35m (80.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$m5yqRjsGJk62FYMAdqlkYuUvPoD/MKh/eoUeAeXkpSbQA9.byVVr2', 'Test User', '2015-02-01 23:45:38.912977', '2015-02-01 23:45:38.912977')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#landing as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 69  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/landing.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.4ms)
+  [1m[36m (35.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$swuQNnzGJEOUEBFLpUemC.iFRxvOJuA/WBZEa2ANqNjHbSEt4yvMq', 'Test User', '2015-02-01 23:45:38.966348', '2015-02-01 23:45:38.966348')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#landing as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 70  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/landing.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.4ms)
+  [1m[35m (48.3ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$tWhf8oFOwApugHTaKRKQ..v7Qp0uZ6ImbffdLR/3MIKj8bQ9jli6O', 'Test User', '2015-02-01 23:45:39.028638', '2015-02-01 23:45:39.028638')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#tools as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 71  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/tools.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.3ms)
+  [1m[36m (37.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$fCXpM4skkbtRIn7W0esQpeCcCNmLUrpWwXJ9Lp.0QNWPKVh7x5pKa', 'Test User', '2015-02-01 23:45:39.078528', '2015-02-01 23:45:39.078528')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#tools as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 72  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/tools.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.4ms)
+  [1m[35m (38.6ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$ddvtfgHJTs8ujz/8YAxnRO.Wl1GDC3KjB3KG5Ix8fvIserSU3dDvC', 'Test User', '2015-02-01 23:45:39.132729', '2015-02-01 23:45:39.132729')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#tools as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 73  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/tools.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.5ms)
+  [1m[36m (42.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$LApp6xSDebL./17oFwwLPOPoL2yeJD9BNt5Jve0a31YtOyEMa/4f.', 'Test User', '2015-02-01 23:45:39.191891', '2015-02-01 23:45:39.191891')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#contacts as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 74  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/contacts.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.4ms)
+  [1m[35m (41.7ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$gYkzzk6jWhdemhgp2iXxk.zLpQ3LsGs5lIpGpcXYvel4DO9JUNdwe', 'Test User', '2015-02-01 23:45:39.246006', '2015-02-01 23:45:39.246006')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#contacts as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 75  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/contacts.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.4ms)
+  [1m[36m (38.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$h2W1wc7tdocDGmHBIdSduOBWYiVjTRLyOSy/cYss1fROauBLKoRJi', 'Test User', '2015-02-01 23:45:39.300366', '2015-02-01 23:45:39.300366')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#contacts as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 76  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/contacts.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.4ms)
+  [1m[35m (42.7ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$7/.bHL1.2WNfQLXegqHU/uoQIEGdXmTeP59mr3diCwLCkEKiIbPhm', 'Test User', '2015-02-01 23:45:39.354454', '2015-02-01 23:45:39.354454')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#about_us as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 77  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/about_us.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.4ms)
+  [1m[36m (37.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$0Vv/XVfCIfxf5SqnOEgrvep272GffGkI375IfZXgfH/7MJ3Ldpseq', 'Test User', '2015-02-01 23:45:39.404649', '2015-02-01 23:45:39.404649')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#about_us as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 78  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/about_us.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.4ms)
+  [1m[35m (38.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$/kTYsxVlQh0ZT2C5vTNJUuJjUlGdMp2zwlLtGyCc7RC9L9fh2b45i', 'Test User', '2015-02-01 23:45:39.454623', '2015-02-01 23:45:39.454623')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#about_us as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 79  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/about_us.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.4ms)
+  [1m[36m (38.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$RzoCiyhp6pa6gu6T0zITKOWu49DVqdlNOIFlGUaDQdy2OCjI8RyXq', 'Test User', '2015-02-01 23:45:39.510000', '2015-02-01 23:45:39.510000')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#faq as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 80  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/faq.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.4ms)
+  [1m[35m (38.9ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$56lUsjzQaPGkecXD8RuhJ.KI8n1aDACcmXyDOYP6gglksKv2JMKk2', 'Test User', '2015-02-01 23:45:39.562924', '2015-02-01 23:45:39.562924')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#faq as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 81  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/faq.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+  [1m[36m (39.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$13b59cyvxgYJK0XCJFkSe.yt1sswwOzTGqJ.yvtzxuOD5NOxC1132', 'Test User', '2015-02-01 23:45:39.612926', '2015-02-01 23:45:39.612926')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#faq as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 82  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/faq.html.slim within layouts/application (0.4ms)
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.3ms)
+  [1m[35m (39.5ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$zSY6AO2s65YpdDvFClzF1.UAX4tAUL5z5XvN5gxX.3PpUie8JVizC', 'Test User', '2015-02-01 23:45:53.990755', '2015-02-01 23:45:53.990755')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#landing as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 83  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/landing.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 52ms (Views: 9.6ms | ActiveRecord: 0.5ms)
+  [1m[35m (42.5ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$bftNJyl/cORwbJU81pP9oOx.g2zlEN4rQraqRohkm5PxP9rCpielu', 'Test User', '2015-02-01 23:45:54.102066', '2015-02-01 23:45:54.102066')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#landing as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 84  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/landing.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.5ms)
+  [1m[36m (31.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$oo5h5CUc6k2WCcJuae/Q4.4OxPKUkFLBD2M09GOLoIvAERkliRrhG', 'Test User', '2015-02-01 23:45:54.151458', '2015-02-01 23:45:54.151458')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#landing as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 85  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/landing.html.slim within layouts/application (0.4ms)
+Completed 200 OK in 4ms (Views: 1.8ms | ActiveRecord: 0.4ms)
+  [1m[35m (30.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$/XGfkZ72pdzZKSTOlcxwhOIkDU65MsbDdfUXJ7xSnEUViYctFSV/6', 'Test User', '2015-02-01 23:45:54.201608', '2015-02-01 23:45:54.201608')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#tools as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 86  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/tools.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.5ms)
+  [1m[36m (32.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$YxeoYWTOsF6L8uHDxB72Je4NL8ki9BYYueLj59PLrlW/EA93/EBBm', 'Test User', '2015-02-01 23:45:54.252100', '2015-02-01 23:45:54.252100')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#tools as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 87  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/tools.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.4ms)
+  [1m[35m (42.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$JELo.AlVm/s12gn5vyReOeJu4R6sGptNCnohfohWquM3rzjD/4P/e', 'Test User', '2015-02-01 23:45:54.308694', '2015-02-01 23:45:54.308694')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#tools as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 88  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/tools.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.5ms)
+  [1m[36m (34.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$clqkQIOgYhsHivgSXyzk..h7sqFgg9Vr6upcfhJvWWQ9NlwuvlhAu', 'Test User', '2015-02-01 23:45:54.360343', '2015-02-01 23:45:54.360343')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#contacts as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 89  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/contacts.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.5ms)
+  [1m[35m (33.6ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$Eo8vL.KYZS8LqSvn3WFRzecGIPfd6Bau3qhFSCNAKQ4PDaLLY7r86', 'Test User', '2015-02-01 23:45:54.408773', '2015-02-01 23:45:54.408773')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#contacts as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 90  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/contacts.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+  [1m[36m (53.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$eU9jNZrcl0QzVyLR3UBIoO/HzDo8zAqcJ9EMYczLS17pE9aHOneOq', 'Test User', '2015-02-01 23:45:54.477185', '2015-02-01 23:45:54.477185')[0m
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#contacts as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 91  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/contacts.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.4ms)
+  [1m[35m (32.4ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$croKFC5Xf5/nhwSG.n3nC.gzxVlJ.A5IYC2b5jWGZf5Gl0t5oqWzC', 'Test User', '2015-02-01 23:45:54.526267', '2015-02-01 23:45:54.526267')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#about_us as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 92  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/about_us.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.4ms)
+  [1m[36m (35.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$JVWGRwAq4TaJ/FYhsW5b8e6NrEtvHDu6FVkFTGO4M/MfCdCupwKuu', 'Test User', '2015-02-01 23:45:54.576964', '2015-02-01 23:45:54.576964')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#about_us as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 93  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/about_us.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.4ms)
+  [1m[35m (36.0ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$BkA1XrxvG8boZluWmm.F2un0fNfGo8FBN8sD3rFP1m32PQhhPCpzW', 'Test User', '2015-02-01 23:45:54.624700', '2015-02-01 23:45:54.624700')
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#about_us as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 94  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/about_us.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.5ms)
+  [1m[36m (37.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$VV6zrx.5HOe7/KPwnYeD3eKqMEM.iC6FriguIje9RwDL8NUH4AWbW', 'Test User', '2015-02-01 23:45:54.674580', '2015-02-01 23:45:54.674580')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#faq as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 95  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/faq.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.4ms)
+  [1m[35m (38.6ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$0FQAY4eyglVYKG3uSSWYRelzeFBhdmDuADrCcuWDG2V/GxTwcZ6kW', 'Test User', '2015-02-01 23:45:54.724722', '2015-02-01 23:45:54.724722')
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StaticPagesController#faq as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 96  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered static_pages/faq.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.4ms)
+  [1m[36m (38.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'ooo2@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`email`, `encrypted_password`, `name`, `created_at`, `updated_at`) VALUES ('ooo2@gmail.com', '$2a$04$TzjPMLxtIWUbOqd4H1p5Lef/QzxACMEw9F.ESV.O9ck6KW6KpEgd6', 'Test User', '2015-02-01 23:45:54.774424', '2015-02-01 23:45:54.774424')[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StaticPagesController#faq as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 97  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendered static_pages/faq.html.slim within layouts/application (0.3ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.2ms)
+  [1m[35m (49.0ms)[0m  ROLLBACK
