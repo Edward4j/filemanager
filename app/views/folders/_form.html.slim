@@ -1,0 +1,9 @@
+= form_for @folder do |f|
+  = f.hidden_field :parent_id
+  = f.hidden_field :user_id
+  p
+    = f.label :name, "New Folder"
+    br/
+    = f.text_field :name
+  p 
+    = f.submit "Create Folder"

@@ -4,4 +4,5 @@
     .alert class="alert-#{name.to_s == 'notice' ? 'success' : 'danger' }"
       button.close aria-hidden="true" data-dismiss="alert" type="button"
         | \&times;
-      .msg id="flash_#{name}"
+      div id="flash_#{name}"
+        = msg
