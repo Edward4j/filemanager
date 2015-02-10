@@ -3,6 +3,6 @@
   - if msg.is_a?(String)
     .alert class="alert-#{name.to_s == 'notice' ? 'success' : 'danger' }"
       button.close aria-hidden="true" data-dismiss="alert" type="button"
-        | \&times;
+        | &times;
       div id="flash_#{name}"
         = msg
