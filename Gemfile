@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 
@@ -41,6 +40,7 @@ gem 'devise-bootstrap-views', '~> 0.0.3'
 gem 'execjs'
 gem 'therubyracer'
 gem 'omniauth-facebook'
+gem 'ancestry'
 
 
 group :development, :test do

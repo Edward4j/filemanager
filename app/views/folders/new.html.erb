@@ -1,0 +1,7 @@
+<h1> Create subfolder </h1>
+
+<%= render @folder.parent if @folder.parent %>
+
+<%= render "form" %>
+
+<p><%= link_to "Back to Folders", folders_path %></p>

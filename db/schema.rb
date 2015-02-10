@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150123141628) do
+ActiveRecord::Schema.define(version: 20150130213147) do
+
+  create_table "folders", force: :cascade do |t|
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "ancestry",   limit: 255
+    t.string   "name",       limit: 255
+    t.integer  "user_id",    limit: 4
+  end
+
+  add_index "folders", ["ancestry"], name: "index_folders_on_ancestry", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
