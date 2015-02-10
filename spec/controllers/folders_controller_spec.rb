@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe FolderController, :type => :controller do
+RSpec.describe FoldersController, :type => :controller do
 
   describe "GET index" do
     it "returns http success" do

@@ -1,7 +1,5 @@
 class StaticPagesController < ApplicationController
 
-  before_action :authenticate_user!
-
   def landing
     @greeting = "Hello! This is a filemanager"
   end
@@ -11,7 +9,7 @@ class StaticPagesController < ApplicationController
   end
 
   def contacts
- 	  @name = 'Contacts'
+    @name = 'Contacts'
   end
 
   def about_us
@@ -20,10 +18,6 @@ class StaticPagesController < ApplicationController
 
   def faq
     @answers = "This is F.A.Q."
-  end
-
-  def folders
- 	@name = 'Contacts'
   end
 
 end
