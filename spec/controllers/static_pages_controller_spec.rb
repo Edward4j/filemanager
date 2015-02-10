@@ -1,9 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe StaticPagesController, :type => :controller do
-  before do
-    sign_in User.create!(email: 'ooo2@gmail.com', password: 'password', name: 'Test User')
-  end
 
   describe "GET #langing" do
     it "responds successfully with an HTTP 200 status code" do
