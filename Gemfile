@@ -33,14 +33,18 @@ gem 'slim'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
 gem 'devise', '~> 3.4.1'
 gem 'bootstrap-sass', '~> 3.3.1.0'
 gem 'devise-bootstrap-views', '~> 0.0.3'
 gem 'execjs'
 gem 'therubyracer'
-gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'ancestry'
+<<<<<<< HEAD
+=======
+
+>>>>>>> 51fd3448e66c7187906451b264cc4f71892c942f
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

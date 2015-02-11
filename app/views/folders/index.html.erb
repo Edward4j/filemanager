@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <% for folder in @folders %>
   <div class="folder">
     <div class="created_at"><%= folder.created_at.strftime("%B %d, %Y") %></div>   
@@ -13,3 +14,10 @@
 
 <%= render "form" %>
 
+=======
+<h1> Folders </h1>
+
+<%= nested_folders @folders.arrange(:order => :created_at) %>
+
+<%= render "form" %>
+>>>>>>> 51fd3448e66c7187906451b264cc4f71892c942f

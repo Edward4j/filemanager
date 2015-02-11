@@ -1,9 +1,17 @@
 <%= form_for @folder do |f| %>
 
   <%= f.hidden_field :parent_id %>
+<<<<<<< HEAD
+=======
+  <%= f.hidden_field :user_id %>
+>>>>>>> 51fd3448e66c7187906451b264cc4f71892c942f
   <p>
     <%= f.label :name, "New Folder" %><br />
     <%= f.text_field :name %>
   </p>
+<<<<<<< HEAD
   <p><%= f.submit "Post Folder" %></p>
+=======
+  <p><%= f.submit "Create Folder" %></p>
+>>>>>>> 51fd3448e66c7187906451b264cc4f71892c942f
 <% end %>
