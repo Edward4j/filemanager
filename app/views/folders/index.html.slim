@@ -1,9 +1,11 @@
 h1 Folders
 
-span.glyphicon.glyphicon-plus
-.glyphicon.glyphicon-folder-close
-  <script type="text/javascript">document.getElementsByClassName('glyphicon glyphicon-plus')[0].onclick = function() {alert('test')};
-  </script>
+/span.glyphicon.glyphicon-plus
+a href="#"
+  span.glyphicon.glyphicon-folder-close
+
+<script type="text/javascript">document.getElementsByClassName('glyphicon glyphicon-plus')[0].onclick = function() {alert('test')"};
+</script>
 = nested_folders @folders.arrange(:order => :created_at)
 
 = render "form"

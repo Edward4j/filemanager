@@ -1,9 +1,12 @@
 .folder
-  .created_at 
+  .glyphicon.glyphicon-folder-close.name
+  - if folder.has_children?
+  = folder.name
+  /.created_at
     = folder.created_at.strftime("%B %d, %Y")
-  .name
+
     = folder.name
   .actions
-    = link_to "Create subfolder", new_folder_path(parent_id: folder) 
+    = link_to "Create subfolder", new_folder_path(parent_id: folder)
     = "|"
     = link_to "Destroy", folder, method: :delete, data: {confirm: "Are you sure?"}
