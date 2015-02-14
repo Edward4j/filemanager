@@ -1,7 +1,10 @@
 .folder
-  .glyphicon.glyphicon-folder-close.name
+
   - if folder.has_children?
+    .glyphicon.glyphicon-plus
+  .glyphicon.glyphicon-folder-close
   = folder.name
+
   /.created_at
     = folder.created_at.strftime("%B %d, %Y")
 
