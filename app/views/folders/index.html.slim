@@ -1,5 +1,8 @@
 h1 Folders
 
+ol.breadcrumb
+  = render_breadcrumbs :tag => :li, :separator => " "
+
 = nested_folders @folders.arrange(:order => :created_at)
 
 = render "form"

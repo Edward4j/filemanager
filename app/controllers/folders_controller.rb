@@ -1,7 +1,10 @@
 class FoldersController < ApplicationController
 
   before_action :authenticate_user!
-  
+
+  add_breadcrumb "home", :root_path
+  add_breadcrumb "folders", :folders_path
+
   def new
     @folder = Folder.new(parent_id: params[:parent_id], user_id: current_user.id)
   end
@@ -19,10 +22,14 @@ class FoldersController < ApplicationController
   def destroy
     @folder = Folder.find params[:id]
     @folder.delete
-    redirect_to folders_path 
+    redirect_to folders_path
   end
- 
-  private 
+
+def show
+  add_breadcrumb "index", index_path, :title => "Back to the Index"
+end
+
+  private
 
   def folder_params
     params.require(:folder).permit(:name, :parent_id, :user_id)
