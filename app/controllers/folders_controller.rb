@@ -1,7 +1,12 @@
 class FoldersController < ApplicationController
 
+
   before_action :authenticate_user!
   
+  def show
+    @folder = Folder.find(params[:id])
+  end
+
   def new
     @folder = Folder.new(parent_id: params[:parent_id], user_id: current_user.id)
   end
@@ -29,3 +34,6 @@ class FoldersController < ApplicationController
   end
 
 end
+
+
+
