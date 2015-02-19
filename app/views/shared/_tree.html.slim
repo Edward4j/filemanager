@@ -6,6 +6,6 @@ ul
       - else
         span.glyphicon
       '&nbsp
-      = link_to "#{content_tag(:span, folder.name)}".html_safe, folder_path(folder)
+      = link_to "#{content_tag(:span, "", :class => 'glyphicon glyphicon-folder-close')} #{content_tag(:span, folder.name)}".html_safe, folder_path(folder)
       - if folder.has_children?
         = render 'shared/tree', :folders => folder.children.order("created_at asc")

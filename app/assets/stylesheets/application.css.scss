@@ -24,3 +24,20 @@ body{
 .nested_folders {
   margin-left: 30px;
 }
+
+    ul {
+      list-style-type: none;
+      .glyphicon {
+        cursor: pointer;
+      }
+      a {
+        color: black;
+        text-decoration: none;
+        span:hover {
+          text-decoration: underline;
+        }
+      };
+    };
+    li > ul {
+      list-style-type: none;
+    };
