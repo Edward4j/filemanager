@@ -1,1 +1,7 @@
 h1= @greeting
+
+= render "shared/menu"
+
+/folder
+/= nested_folders Folder.all.arrange(:order => :created_at)
+

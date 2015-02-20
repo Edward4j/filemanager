@@ -1,0 +1,11 @@
+ul
+  - folders.each do |folder|
+    li
+      - if folder.has_children?
+        span.glyphicon.toggleable_folder class=(@folder && @folder.ancestor_ids.include?(folder.id) ? 'glyphicon-minus' : "glyphicon-plus" )
+      - else
+        span.glyphicon
+      '&nbsp
+      = link_to "#{content_tag(:span, "", :class => 'glyphicon glyphicon-folder-close')} #{content_tag(:span, folder.name)}".html_safe, folder_path(folder)
+      - if folder.has_children?
+        = render 'shared/tree', :folders => folder.children.order("created_at asc")
