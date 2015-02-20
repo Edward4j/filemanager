@@ -1,18 +1,5 @@
 h1 Folders
 
-/span.glyphicon.glyphicon-plus
-
-<script type="text/javascript">document.getElementsByClassName('glyphicon glyphicon-plus')[0].onclick = function() {alert('test')"};
-</script>
 = nested_folders @folders.arrange(:order => :created_at)
 
 = render "form"
-
-- @folders.each do |f|
-  - if f.has_children?
-    span.glyphicon.glyphicon-plus
-
-
-  = link_to f.name, f, class: 'glyphicon glyphicon-folder-close'
-
-

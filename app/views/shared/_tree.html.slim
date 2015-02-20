@@ -2,7 +2,7 @@ ul
   - folders.each do |folder|
     li
       - if folder.has_children?
-        span.glyphicon.toggleable_folder class=( @folder && @folder.ancestor_ids.include?(folder.id) ? 'glyphicon-minus' : "glyphicon-plus" )
+        span.glyphicon.toggleable_folder class=(@folder && @folder.ancestor_ids.include?(folder.id) ? 'glyphicon-minus' : "glyphicon-plus" )
       - else
         span.glyphicon
       '&nbsp
