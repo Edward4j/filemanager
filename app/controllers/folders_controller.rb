@@ -27,6 +27,15 @@ class FoldersController < ApplicationController
     redirect_to folders_path 
   end
  
+  def folders_tree
+    @folder = Folder.new
+    @folders = Folder.all
+  end
+
+  def folders_form
+    @folder = Folder.new(parent_id: params[:parent_id], user_id: current_user.id)
+  end
+
   private 
 
   def folder_params
