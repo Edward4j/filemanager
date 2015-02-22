@@ -1,1 +1,8 @@
-= @folder.name
+h1
+  = @folder.name
+
+ul
+  li
+    = link_to '/..', @folder.parent ? folder_path(@folder.parent) : folders_path
+  - @folder.children.each do |child|
+    = render child

@@ -12,8 +12,7 @@ class FoldersController < ApplicationController
   end
 
   def index
-    @folder = Folder.new
-    @folders = Folder.all
+    @folders = Folder.roots
   end
 
   def create
