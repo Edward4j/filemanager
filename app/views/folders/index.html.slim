@@ -1,5 +1,5 @@
 h1 Folders
 
-= nested_folders @folders.arrange(:order => :created_at)
-
-= render "form"
+ul
+  - @folders.each do |folder|
+    = render folder
