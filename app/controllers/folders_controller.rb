@@ -1,6 +1,5 @@
 class FoldersController < ApplicationController
 
-
   before_action :authenticate_user!
   
   def show
@@ -17,7 +16,7 @@ class FoldersController < ApplicationController
 
   def create
     @folder = Folder.create folder_params
-    redirect_to folders_path
+    redirect_to folders_tree_folders_path
   end
 
   def destroy
