@@ -12,9 +12,6 @@ ol.nav-path
     = @folder.name if @folder
 
 
-  /!
-    = render_breadcrumbs :tag => :li, :separator => " "
-
 = nested_folders @folders.arrange(:order => :created_at)
 
 = render "form"
