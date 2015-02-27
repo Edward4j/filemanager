@@ -26,7 +26,7 @@ class FoldersController < ApplicationController
   end
 
 def show
-  add_breadcrumb "index", index_path, :title => "Back to the Index"
+  @folders = Folder.all
 end
 
   private
