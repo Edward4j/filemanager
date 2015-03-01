@@ -1,5 +1,17 @@
 h1 Folders
 
+ol.nav-path
+  span
+    | You are here: /
+    = link_to "Folders", folders_path
+    - if @folder && @folder.ancestors
+      |  /
+      - @folder.ancestors.each do |folder|
+        = link_to folder.name, folder
+        |  /
+    = @folder.name if @folder
+
+
 = nested_folders @folders.arrange(:order => :created_at)
 
 = render "form"

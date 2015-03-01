@@ -1,7 +1,7 @@
 class FoldersController < ApplicationController
 
   before_action :authenticate_user!
-  
+
   def new
     @folder = Folder.new(parent_id: params[:parent_id], user_id: current_user.id)
   end
@@ -19,13 +19,17 @@ class FoldersController < ApplicationController
   def destroy
     @folder = Folder.find params[:id]
     @folder.delete
-    redirect_to folders_path 
+    redirect_to folders_path
   end
- 
-  private 
 
-  def folder_params
-    params.require(:folder).permit(:name, :parent_id, :user_id)
+  def show
+    @folders = Folder.all
   end
+
+  private
+
+    def folder_params
+      params.require(:folder).permit(:name, :parent_id, :user_id)
+    end
 
 end
