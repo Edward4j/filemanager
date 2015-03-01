@@ -44,7 +44,6 @@ gem 'execjs'
 gem 'therubyracer'
 gem 'omniauth-facebook'
 gem 'ancestry'
-gem "breadcrumbs_on_rails"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

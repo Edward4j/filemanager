@@ -25,14 +25,14 @@ class FoldersController < ApplicationController
     redirect_to folders_path
   end
 
-def show
-  @folders = Folder.all
-end
+  def show
+    @folders = Folder.all
+  end
 
   private
 
-  def folder_params
-    params.require(:folder).permit(:name, :parent_id, :user_id)
-  end
+    def folder_params
+      params.require(:folder).permit(:name, :parent_id, :user_id)
+    end
 
 end
