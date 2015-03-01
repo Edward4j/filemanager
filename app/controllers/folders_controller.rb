@@ -2,9 +2,6 @@ class FoldersController < ApplicationController
 
   before_action :authenticate_user!
 
-  add_breadcrumb "home", :root_path
-  add_breadcrumb "folders", :folders_path
-
   def new
     @folder = Folder.new(parent_id: params[:parent_id], user_id: current_user.id)
   end
